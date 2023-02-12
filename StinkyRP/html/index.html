@@ -1,0 +1,531 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8"/><title>LoadingScreen</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+		<style>
+			::-webkit-scrollbar {
+				display: none;
+			}
+			* {
+				font-family: 'Roboto', sans-serif;
+				margin: 0;
+            	padding: 0;
+				user-select: none;
+			}
+
+			*, *:after, *:before {
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+
+			.label, .endTitle, .container {
+				display: none;
+			}
+
+			.endTitle {
+				height: 100vh;
+				width: 100%;
+				/* display: flex; */
+				display: none;
+				/* justify-content: center; */
+				align-items: center;
+				flex-direction: column;
+				background: #00000067;
+				padding: 10px;
+				border-radius: 5px;
+			}
+
+			.endTitle img {
+				margin-top: 20vh;
+				width: 200px;
+				border-radius: 15px;
+			}
+
+			.title {
+				font-weight: bold;
+				font-size: 70px;
+				margin: 30px 0 10px 0;
+				color: #e7e7e7;
+				/* background: #00000083;
+				padding: 10px;
+				border-radius: 10px; */
+			}
+
+			.subtitle {
+				font-weight: 500;
+				color: #d6d6d6;
+				font-size: 30px;
+				margin: 10px 0 10px 0;
+				/* background: #00000083;
+				padding: 10px;
+				border-radius: 5px; */
+			}
+
+			.text {
+				font-weight: 400;
+				color: #d6d6d6;
+				font-size: 20px;
+				/* background: #00000083;
+				padding: 10px;
+				border-radius: 5px; */
+			}
+
+			.container {
+				width: 100%;
+				height: 100vh;
+				position: relative;
+			}
+
+			.container video {
+				height: 100%;
+				width: 100%;
+			}
+
+			.text-box {
+				font-family: 'Roboto', sans-serif;
+				position: absolute;
+				left: 0;
+				top: 0;
+				background: #000;
+				height: 100%;
+				width: 100%;
+				color: #fff;
+				display: none;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				font-size: 100px;
+				font-weight: 900;
+				mix-blend-mode: multiply;
+			}
+
+			span {
+				font-size: 50px;
+				font-weight: 100;
+				text-transform: uppercase;
+				font-family: 'Roboto', sans-serif;
+			}
+
+			.highlight {
+				margin-top: 10px;
+				text-transform: lowercase;
+				font-weight: 400;
+				color: #d6d6d6;
+				font-size: 20px;
+				color: rgb(23, 104, 255);
+				background: #00000052;
+				padding: 10px 20px 10px 20px;
+				border-radius: 5px;
+			}
+
+			.label {
+				position: fixed;
+				left: 70px;
+				bottom: 50px;
+				color: #e7e7e7;
+				background: #00000052;
+				padding: 10px 20px 10px 20px;
+				border-radius: 5px;
+				font-size: 26px;
+				text-transform: uppercase;
+				font-weight: 500;
+				transform: skew(-10deg);
+				letter-spacing: 3px;
+			}
+
+			.title_div {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+				
+			}
+
+			.clearfix:before, .clearfix:after {
+				content: " ";
+				display: table;
+				}
+
+			.clearfix:after {
+				clear: both;
+			}
+
+			.codrops-top {
+				text-transform: uppercase;
+				position: relative;
+				z-index: 1000;
+				font-size: 0.68em;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+				line-height: 2.2;
+			}
+
+			.codrops-top a {
+				padding: 0 1em;
+				letter-spacing: 0.1em;
+				color: rgba(255, 255, 255, 0.2);
+				display: inline-block;
+			}
+
+			.codrops-top a:hover {
+				color: rgba(255, 255, 255, 0.9);
+			}
+
+			.codrops-top span.right {
+				float: right;
+			}
+
+			.codrops-top span.right a {
+				float: left;
+				display: block;
+			}
+
+			.os-phrases h2 {
+				font-family: "Dosis", "Lato", sans-serif;
+				font-size: 70px;
+				font-weight: 200;
+				width: 100%;
+				overflow: hidden;
+				text-transform: uppercase;
+				padding: 0;
+				margin: 0;
+				position: absolute;
+				top: 0;
+				left: 0;
+				letter-spacing: 14px;
+				text-align: center;
+				opacity: 0;
+			}
+
+			.os-phrases h2,
+			.os-phrases h2 > span {
+				height: 100%;
+				/* Centering with flexbox */
+				display: -webkit-box;
+				display: -moz-box;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-flex-direction: row;
+				-ms-flex-direction: row;
+				flex-direction: row;
+				-webkit-box-pack: center;
+				-moz-box-pack: center;
+				-webkit-justify-content: center;
+				-ms-flex-pack: center;
+				justify-content: center;
+				-webkit-box-align: center;
+				-moz-box-align: center;
+				-webkit-align-items: center;
+				-ms-flex-align: center;
+				align-items: center;
+			}
+
+			.os-phrases h2 > span {
+				margin: 0 15px;
+			}
+
+			.os-phrases h2 > span > span {
+				display: inline-block;
+				-webkit-perspective: 1000px;
+				-moz-perspective: 1000px;
+				perspective: 1000px;
+				-webkit-transform-origin: 50% 50%;
+				-moz-transform-origin: 50% 50%;
+				transform-origin: 50% 50%;
+			}
+
+			.os-phrases h2 > span > span > span {
+				display: inline-block;
+				color: rgba(0, 0, 0, 0);
+				-webkit-transform-style: preserve-3d;
+				-moz-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+				-webkit-transform: translate3d(0, 0, 0);
+				-moz-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+				-webkit-animation: OpeningSequence 5.2s linear forwards;
+				-moz-animation: OpeningSequence 5.2s linear forwards;
+				animation: OpeningSequence 5.2s linear forwards;
+			}
+
+			.os-phrases h2:nth-child(2) > span > span > span {
+				-webkit-animation-delay: 5s;
+				-moz-animation-delay: 5s;
+				animation-delay: 5s;
+			}
+
+			.os-phrases h2:nth-child(3) > span > span > span {
+				-webkit-animation-delay: 10s;
+				-moz-animation-delay: 10s;
+				animation-delay: 10s;
+			}
+
+			.os-phrases h2:nth-child(4) > span > span > span {
+				-webkit-animation-delay: 15s;
+				-moz-animation-delay: 15s;
+				animation-delay: 15s;
+			}
+
+			.os-phrases h2:nth-child(5) > span > span > span {
+				font-size: 150px;
+				-webkit-animation-delay: 21s;
+				-moz-animation-delay: 21s;
+				animation-delay: 21s;
+				-webkit-animation-duration: 8s;
+				-moz-animation-duration: 8s;
+				animation-duration: 8s;
+			}
+
+			.os-phrases h2:nth-child(6) > span > span > span {
+				-webkit-animation-delay: 30s;
+				-moz-animation-delay: 30s;
+				animation-delay: 30s;
+			}
+
+			.os-phrases h2:nth-child(7) > span > span > span {
+				-webkit-animation-delay: 34s;
+				-moz-animation-delay: 34s;
+				animation-delay: 34s;
+			}
+
+			@-webkit-keyframes OpeningSequence {
+			0% {
+				text-shadow: 0 0 50px #fff;
+				letter-spacing: 80px;
+				opacity: 0;
+				-webkit-transform: rotateY(-90deg);
+			}
+			50% {
+				text-shadow: 0 0 1px #fff;
+				letter-spacing: 14px;
+				opacity: 0.8;
+				-webkit-transform: rotateY(0deg);
+			}
+			85% {
+				text-shadow: 0 0 1px #fff;
+				opacity: 0.8;
+				-webkit-transform: rotateY(0deg) translateZ(100px);
+			}
+			100% {
+				text-shadow: 0 0 10px #fff;
+				opacity: 0;
+				-webkit-transform: translateZ(130px);
+				pointer-events: none;
+			}
+			}
+			@-moz-keyframes OpeningSequence {
+			0% {
+				text-shadow: 0 0 50px #fff;
+				letter-spacing: 80px;
+				opacity: 0.2;
+				-moz-transform: rotateY(-90deg);
+			}
+			50% {
+				text-shadow: 0 0 1px #fff;
+				letter-spacing: 14px;
+				opacity: 0.8;
+				-moz-transform: rotateY(0deg);
+			}
+			85% {
+				text-shadow: 0 0 1px #fff;
+				opacity: 0.8;
+				-moz-transform: rotateY(0deg) translateZ(100px);
+			}
+			100% {
+				text-shadow: 0 0 10px #fff;
+				opacity: 0;
+				-moz-transform: translateZ(130px);
+				pointer-events: none;
+			}
+			}
+			@keyframes OpeningSequence {
+			0% {
+				text-shadow: 0 0 50px #fff;
+				letter-spacing: 80px;
+				opacity: 0.2;
+				transform: rotateY(-90deg);
+			}
+			50% {
+				text-shadow: 0 0 1px #fff;
+				letter-spacing: 14px;
+				opacity: 0.8;
+				transform: rotateY(0deg);
+			}
+			85% {
+				text-shadow: 0 0 1px #fff;
+				opacity: 0.8;
+				transform: rotateY(0deg) translateZ(100px);
+			}
+			100% {
+				text-shadow: 0 0 10px #fff;
+				opacity: 0;
+				transform: translateZ(130px);
+				pointer-events: none;
+			}
+			}
+			.os-phrases h2:nth-child(8) > span > span > span {
+				font-size: 30px;
+				-webkit-animation: FadeIn 4s linear 40s forwards;
+				-moz-animation: FadeIn 4s linear 40s forwards;
+				animation: FadeIn 4s linear 40s forwards;
+			}
+
+			@-webkit-keyframes FadeIn {
+			0% {
+				opacity: 0;
+				text-shadow: 0 0 50px #fff;
+			}
+			100% {
+				opacity: 0.8;
+				text-shadow: 0 0 1px #fff;
+			}
+			}
+			@-moz-keyframes FadeIn {
+			0% {
+				opacity: 0;
+				text-shadow: 0 0 50px #fff;
+			}
+			100% {
+				opacity: 0.8;
+				text-shadow: 0 0 1px #fff;
+			}
+			}
+			@keyframes FadeIn {
+			0% {
+				opacity: 0;
+				text-shadow: 0 0 50px #fff;
+			}
+			100% {
+				opacity: 0.8;
+				text-shadow: 0 0 1px #fff;
+			}
+			}
+			/* Bold words */
+			.os-phrases h2:first-child .word3,
+			.os-phrases h2:nth-child(2) .word2,
+			.os-phrases h2:nth-child(4) .word2 {
+				font-weight: 600;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="label">
+			<p id="textLabel">Ciekawe osoby</p>
+		</div>
+		<div class="title_div">	
+			<div class="os-phrases" id="os-phrases">
+				<h2 id="textTitle">test</h2>
+			</div>
+		</div>
+		<div class="endTitle">
+			<img src="logo.png" alt="" srcset="">
+			<p class="title">Stinky RolePlay</p>
+			<p class="subtitle">Wystartowal</p>
+			<span class="highlight">https://discord.gg/stinkyrp</span>
+		</div>
+		<div class="container">
+			<video id="video" loop muted>
+				<source src="https://i.imgur.com/gC1csLc.mp4" type="video/mp4">
+			</video>
+			<div class="text-box">
+				<h1>Stinky</h1>
+				<span>roleplay</span>
+			</div>
+		</div>
+		<audio id="lesson" src="https://qamarq.pl/music/bg.ogg" autoplay="false" hidden="true">
+		<audio id="lesson2" src="title.ogg" autoplay="false" hidden="true">
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/107/three.js'></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.6.1/jquery.lettering.min.js'></script>
+		<script>
+			var myAudio = document.getElementById("lesson");
+			myAudio.pause();
+			myAudio.volume = 0.1;
+
+			var myAudio2 = document.getElementById("lesson2");
+			myAudio2.pause();
+			myAudio2.volume = 0.1;
+
+			window.addEventListener('message', function(event) {
+                if (event.data.transactionType == "playSoundTrailer") {
+					myAudio.play();
+                } else if (event.data.transactionType == "stopSoundTrailer") {
+					myAudio.pause();
+				} else if (event.data.transactionType == "playSoundTitle") {
+					myAudio2.play();
+                } else if (event.data.transactionType == "stopSoundTitle") {
+					myAudio2.pause();
+				} else if (event.data.transactionType == "playVideo") {
+					playVideo();
+				} else if (event.data.transactionType == "stopVideo") {
+					stopVideo();
+				} else if (event.data.transactionType == "showEnd") {
+					showEnd();
+				} else if (event.data.transactionType == "hideEnd") {
+					hideEnd();
+				} else if (event.data.transactionType == "showLabel") {
+					showLabel(event.data.txtLabel);
+				} else if (event.data.transactionType == "hideLabel") {
+					hideLabel();
+				} else if (event.data.transactionType == "showTitle") {
+					showTitle(event.data.txtTitle);
+                }
+            });
+
+			function playVideo() {
+				var myVideo = document.getElementById("video");
+				$(".title_div").css('display', 'none');
+				$(".container").fadeIn(function() {
+					$(".text-box").css("display", "flex");
+					myVideo.play();
+					
+				})
+			}
+
+			function stopVideo() {
+				var myVideo = document.getElementById("video");
+				myVideo.pause();
+				$(".container").fadeOut(function() {
+					$(".title_div").css('display', 'flex');
+				});
+			}
+
+			function showEnd() {
+				$(".title_div").css('display', 'none');
+				$(".endTitle")
+					.css("display", "flex")
+					.hide()
+					.fadeIn();
+			}
+
+			function hideEnd() {
+				$(".endTitle").fadeOut(function() {
+					$(".title_div").css('display', 'flex');
+				});	
+			}
+
+			function showLabel(txt) {
+				$("#textLabel").text(txt);
+				$(".label").fadeIn();
+			}
+
+			function hideLabel() {
+				$(".label").fadeOut();
+			}
+
+			function showTitle(txt) {
+				$("#textTitle").text(txt);
+				$(".title_div").css('display', 'flex');
+				$("#os-phrases > h2")
+					.css('opacity', 1).lettering( 'words' )
+					.children( "span" ).lettering()
+					.children( "span" ).lettering();
+			}
+		</script>		
+	</body>
+</html>

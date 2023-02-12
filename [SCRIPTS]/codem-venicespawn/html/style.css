@@ -1,0 +1,256 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+body{
+  margin: 0;
+  overflow: hidden;
+  display: none;
+  background-image: url(../html/img/bg.png);
+  font-family: 'Montserrat', sans-serif;
+}
+.mapgenel{
+  margin-left: -3vh;
+}
+
+.mapaksam{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+
+.user{
+  position: absolute;
+  right: 13%;
+
+  top: 6%;
+  transform: translate(-13%, -6%)
+}
+.oyuncusayi{
+  position: absolute;
+  right: 11%;
+  color: white;
+  top: 6%;
+  transform: translate(-11%, -6%)
+}
+
+.pillbox{
+  position: absolute;
+  left: 71.5%;
+
+  top: 42%;
+  transform: translate(-71.5%, 42%)
+}
+
+.pinkcage{
+  position: absolute;
+
+  left: 68%;
+  top: 54%;
+  transform: translate(-68%, -54%)
+}
+.airport{
+  position: absolute;
+  right: 12%;
+  top: 70%;
+  transform: translate(-12%, -70%)
+}
+
+.vespuci{
+  position: absolute;
+  right: 24%;
+  top: 68%;
+  transform: translate(-24%, -68%)
+}
+
+.harbor{
+  position: absolute;
+  right: 10%;
+  top: 40%;
+  transform: translate(-10%, -40%)
+}
+
+
+.sandy{
+  position: absolute;
+  left: 35%;
+  top: 27%;
+  transform: translate(-35%, -27%)
+}
+
+.paleto{
+  position: absolute;
+  left: 15%;
+  top: 55%;
+  transform: translate(-15%, -55%);
+}
+.harborspawn{
+  position: absolute;
+  left: 30vh;
+  display: none;
+  top: 49vh;
+}
+
+.harborspawn:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.airportspawn{
+  position: absolute;
+  left: 140vh;
+  display: none;
+  top: 40vh;
+}
+
+.airportspawn:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.bulut{
+  position: absolute;
+  left: 10%;
+  bottom: 7%;
+  transform: translate(-10%, -7%);
+}
+.derece{
+  position: absolute;
+  left: 12.5%;
+  color: white;
+  bottom: 6.8%;
+  transform: translate(-12.5%, -6.8%);
+}
+.gun{
+  position: absolute;
+  left: 10%;
+  color: white;
+  bottom: 9%;
+  transform: translate(-10%, -9%)
+}
+
+.harborspawn:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.sandyspawn{
+  position: absolute;
+  left: 70vh;
+  display: none;
+  top: 20vh;
+}
+
+.sandyspawn:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+
+
+.pinkcagespawn{
+  position: absolute;
+  left: 90vh;
+  display: none;
+  top: 42vh;
+}
+
+
+.pinkcagespawn:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.pillboxspawn{
+  position: absolute;
+  left: 114vh;
+  display: none;
+  top: 23vh;
+}
+
+.pillboxspawn:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+
+.vespuccispawn{
+  position: absolute;
+  left: 100vh;
+  display: none;
+  top: 55vh;
+}
+
+.vespuccispawn:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+
+.harborspawn2{
+  position: absolute;
+  left: 130vh;
+  display: none;
+  top: 30vh;
+}
+
+.lspdpin{
+  position: absolute;
+  right: 21%;
+  bottom: 42%;
+  transform: translate(-21%, -42%);
+}
+
+.lspdspawn{
+  position: absolute;
+  left: 125vh;
+  display: none;
+  top: 24vh;
+}
+.lspdspawn:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.harborspawn2:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.spawnlast{
+  position: absolute;
+  left: 55%;
+  bottom: 1.5%;
+  transform: translate(-50%, -0%);
+  background-color: black;
+  color :white;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.spawnlast:hover{
+  cursor: pointer;
+}
+
+
+.maptime{
+  position: absolute;
+  left: 51%;
+  top: 0%;
+  transform: translate(-51%, -0%);
+  color: white;
+}
+
+.tporg{
+  position: absolute;
+  left: 45%;
+  bottom: 1.5%;
+  transform: translate(-50%, -0%);
+  background-color: black;
+  color :white;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  user-select: none;
+}
